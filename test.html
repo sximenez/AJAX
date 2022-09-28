@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Test</title>
+
+  <style>
+    
+    .guide {
+      border: 1px solid red;
+    }
+
+    .h-screen {
+      height: 100vh;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+    
+    .flex-row {
+      flex-direction: row;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-center {
+      justify-content: center;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="h-screen flex flex-col items-center justify-center guide">
+    <h1 class="text-5xl text-blue-400">test</h1>
+    
+    <ul class="flex flex-row gap-x-40">
+
+      <li>A</li>
+      <li>B</li>
+      <li>C</li>
+  
+    </ul>
+  
+  </div>
+
+</body>
+
+</html>

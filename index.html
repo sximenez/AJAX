@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX | Récupérer des données</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Remove input arrows in Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Remove input arrows in Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
+    .font-main {
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .guide {
+      border: 1px solid red;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      /*max-width: 70ch;
+      padding: 3em 1em;
+      margin: auto;
+      line-height: 1.75;
+      font-size: 1.25em;*/
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .arrow-main-page {
+      top: 92.5%;
+      transform: translateY(-92.5%);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .menu-bottom {
+      top: 95%;
+      transform: translateY(-95%);
+    }
+  </style>
+
+</head>
+
+<body class="font-main bg-sky-900 text-white">
+
+  <section id="1"
+    class="relative h-screen flex flex-col lg:flex-row items-center lg:justify-between mx-4 lg:mx-72 text-center lg:text-left">
+
+    <div>
+      <h1 class="py-20 lg:pt-2 text-7xl lg:text-8xl">AJAX</h1>
+    </div>
+
+    <div>
+      <ul class="flex flex-col text-lg lg:text-3xl">
+        <li class="py-4"><a href="#2">Intro</a></li>
+        <li class="py-4"><a href="#4">Protocole HTTP</a></li>
+        <li class="py-4"><a href="#4">Protocole AJAX</a></li>
+        <li class="py-4"><a href="#5">Méthodes GET / POST</a></li>
+        <li class="py-4"><a href="#">Formats XML / JSON</a></li>
+
+      </ul>
+    </div>
+
+    <div>
+      <ul class="flex flex-col text-lg lg:text-3xl">
+        <li class="py-4"><a href="#">DEMO 1</a></li>
+        <li class="py-4"><a href="#">DEMO 2</a></li>
+        <li class="py-4"><a href="#">DEMO 3</a></li>
+      </ul>
+    </div>
+
+    <div class="arrow-main-page flex gap-x-14 absolute">
+      <a href="#2"><i class="fa-solid fa-arrow-down fa-2xl opacity-20"></i></a>
+    </div>
+
+  </section>
+
+  <section id="2" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
+
+    <div class="text-center lg:text-start">
+      <h1 class="text-5xl lg:text-8xl opacity-20 py-10">AJAX</h1>
+      <p class="lg:text-3xl py-4"><a href="https://www.pierre-giraud.com/javascript-apprendre-coder-cours/introduction-ajax/" target="_blank"><span>Asynchronous</span> JavaScript and XML</a></p>
+      <p class="lg:text-3xl py-4">Pas un langage de programmation en soi</p>
+      <p class="lg:text-3xl py-4">Ensemble de techniques pour obtenir/envoyer des données sur le web</p>
+      <p class="lg:text-3xl py-4"><a href="https://fr.wikipedia.org/wiki/Ajax_(informatique)" target="_blank">Asynchrone = no refresh</a></p>
+    </div>
+
+    <div class="menu-bottom flex gap-x-14 absolute">
+      <a href="#1"><i class="fa-solid fa-arrow-up fa-2xl opacity-20"></i></a>
+      <a href="#1"><i class="fa-sharp fa-solid fa-house fa-xl opacity-20"></i></a>
+      <a href="#3"><i class="fa-solid fa-arrow-down fa-2xl opacity-20"></i></a>
+    </div>
+
+  </section>
+
+  <section id="3" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
+
+    <div class="text-center lg:text-start">
+      <h1 class="text-5xl lg:text-8xl opacity-20 py-10">PAS AJAX</h1>
+      
+      <div class="h-4/6 flex flex-row justify-between">
+
+        <img src="images/ajax_produit_menage-removebg.png" alt="" class="opacity-20 hover:opacity-100">
+        <img src="images/Fabien_Barthez_at_OM-removebg.png" alt="" class="opacity-20 hover:opacity-100">
+
+      </div>
+
+    </div>
+
+    <div class="menu-bottom flex gap-x-14 absolute">
+      <a href="#2"><i class="fa-solid fa-arrow-up fa-2xl opacity-20"></i></a>
+      <a href="#1"><i class="fa-sharp fa-solid fa-house fa-xl opacity-20"></i></a>
+      <a href="#4"><i class="fa-solid fa-arrow-down fa-2xl opacity-20"></i></a>
+    </div>
+
+  </section>
+
+  <section id="4" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
+
+    <div>
+      <h1 class="text-5xl lg:text-8xl opacity-20 py-10">Protocoles</h1>
+      <div class="flex flex-col lg:flex-row items-center justify-between">
+        <p class="lg:text-3xl py-4"><a href="https://www.google.com/" target="_blank">HTTP</a></p>
+        <p class="lg:text-3xl py-4"><a href="https://www.google.com/" target="_blank">AJAX</a></p>
+      </div>
+    </div>
+
+    <div class="menu-bottom flex gap-x-14 absolute">
+      <a href="#3"><i class="fa-solid fa-arrow-up fa-2xl opacity-20"></i></a>
+      <a href="#1"><i class="fa-sharp fa-solid fa-house fa-xl opacity-20"></i></a>
+      <a href="#5"><i class="fa-solid fa-arrow-down fa-2xl opacity-20"></i></a>
+    </div>
+
+  </section>
+  
+  <section id="5" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
+
+    <div>
+      <h1 class="text-5xl lg:text-8xl opacity-20 py-10">Méthodes AJAX</h1>
+      <div class="flex flex-col lg:flex-row items-center justify-between">
+        <p class="lg:text-3xl py-4"><a href="https://www.google.com/" target="_blank">GET</a></p>
+        <p class="lg:text-3xl py-4 opacity-20">POST</p>
+      </div>
+    </div>
+
+    <div class="menu-bottom flex gap-x-14 absolute">
+      <a href="#4"><i class="fa-solid fa-arrow-up fa-2xl opacity-20"></i></a>
+      <a href="#1"><i class="fa-sharp fa-solid fa-house fa-xl opacity-20"></i></a>
+      <a href="#6"><i class="fa-solid fa-arrow-down fa-2xl opacity-20"></i></a>
+    </div>
+
+  </section>
+  
+  <section id="6" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
+
+    <div>
+      <h1 class="text-5xl lg:text-8xl opacity-20 py-10">Formats</h1>
+      <div class="flex flex-col lg:flex-row items-center justify-between">
+        <p class="lg:text-3xl py-4"><a href="https://www.google.com/" target="_blank">JSON</a></p>
+        <p class="lg:text-3xl py-4 opacity-20">XML</p>
+      </div>
+    </div>
+
+    <div class="menu-bottom flex gap-x-14 absolute">
+      <a href="#5"><i class="fa-solid fa-arrow-up fa-2xl opacity-20"></i></a>
+      <a href="#1"><i class="fa-sharp fa-solid fa-house fa-xl opacity-20"></i></a>
+      <a href="#"><i class="fa-solid fa-arrow-down fa-2xl opacity-20"></i></a>
+    </div>
+
+  </section>
+
+</body>
+
+</html>
