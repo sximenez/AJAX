@@ -29,6 +29,7 @@
       -moz-appearance: textfield;
     }
 
+    /* Document main font */
     .font-main {
       font-family: 'Open Sans', sans-serif;
     }
@@ -37,6 +38,7 @@
       border: 1px solid red;
     }
 
+    /* Custom CSS */
     html {
       scroll-behavior: smooth;
       /*max-width: 70ch;
@@ -67,6 +69,7 @@
 
 <body class="font-main bg-sky-900 text-white">
 
+  <!-- SLIDE 1 - MAIN -->
   <section id="1"
     class="relative h-screen flex flex-col lg:flex-row items-center lg:justify-between mx-4 lg:mx-72 text-center lg:text-left">
 
@@ -77,19 +80,19 @@
     <div>
       <ul class="flex flex-col text-lg lg:text-3xl">
         <li class="py-4"><a href="#2">Intro</a></li>
-        <li class="py-4"><a href="#4">Protocole HTTP</a></li>
-        <li class="py-4"><a href="#4">Protocole AJAX</a></li>
-        <li class="py-4"><a href="#5">Méthodes GET / POST</a></li>
-        <li class="py-4"><a href="#">Formats XML / JSON</a></li>
+        <li class="py-4"><a href="#4">Connexion HTTP vs AJAX</a></li>
+        <li class="py-4"><a href="#5">Méthodes GET vs POST</a></li>
+        <li class="py-4"><a href="#6">Formats XML vs JSON</a></li>
+        <li class="py-4"><a href="#">XMLHttpRequest vs fetch</a></li>
+        <li class="py-4"><a href="#">API</a></li>
 
       </ul>
     </div>
 
     <div>
       <ul class="flex flex-col text-lg lg:text-3xl">
-        <li class="py-4"><a href="#">DEMO 1</a></li>
-        <li class="py-4"><a href="#">DEMO 2</a></li>
-        <li class="py-4"><a href="#">DEMO 3</a></li>
+        <li class="py-4"><a href="#">DEMO Giphy</a></li>
+        <li class="py-4"><a href="#">DEMO sans clé</a></li>
       </ul>
     </div>
 
@@ -99,14 +102,19 @@
 
   </section>
 
+  <!-- SLIDE 2 -->
   <section id="2" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
 
     <div class="text-center lg:text-start">
-      <h1 class="text-5xl lg:text-8xl opacity-20 py-10">AJAX</h1>
-      <p class="lg:text-3xl py-4"><a href="https://www.pierre-giraud.com/javascript-apprendre-coder-cours/introduction-ajax/" target="_blank"><span>Asynchronous</span> JavaScript and XML</a></p>
-      <p class="lg:text-3xl py-4">Pas un langage de programmation en soi</p>
-      <p class="lg:text-3xl py-4">Ensemble de techniques pour obtenir/envoyer des données sur le web</p>
-      <p class="lg:text-3xl py-4"><a href="https://fr.wikipedia.org/wiki/Ajax_(informatique)" target="_blank">Asynchrone = no refresh</a></p>
+      <h1 class="text-5xl lg:text-8xl opacity-20 py-10">PAS AJAX</h1>
+
+      <div class="h-4/6 flex flex-row items-center justify-between gap-x-36">
+
+        <img src="images/Fabien_Barthez_at_OM-removebg.png" alt="" class="opacity-20 hover:opacity-100">
+        <img src="images/ajax_amsterdam_image.png" alt="" class="h-80 opacity-20 hover:opacity-100">
+
+      </div>
+
     </div>
 
     <div class="menu-bottom flex gap-x-14 absolute">
@@ -117,18 +125,25 @@
 
   </section>
 
+  <!-- SLIDE 3 -->
   <section id="3" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
 
     <div class="text-center lg:text-start">
-      <h1 class="text-5xl lg:text-8xl opacity-20 py-10">PAS AJAX</h1>
-      
-      <div class="h-4/6 flex flex-row justify-between">
+      <h1 class="text-5xl lg:text-8xl opacity-20 pb-10">AJAX</h1>
+      <p class="lg:text-3xl py-4"><a
+          href="https://www.pierre-giraud.com/javascript-apprendre-coder-cours/introduction-ajax/" target="_blank"><span
+            class="text-red-400">A</span>synchronous <span class="text-red-400">J</span>avaScript <span
+            class="text-red-400">a</span>nd <span class="text-red-400">X</span>ML</a></p>
 
-        <img src="images/ajax_produit_menage-removebg.png" alt="" class="opacity-20 hover:opacity-100">
-        <img src="images/Fabien_Barthez_at_OM-removebg.png" alt="" class="opacity-20 hover:opacity-100">
-
+      <div class="flex justify-between pr-64">
+        <p class="py-4">(no refresh)</p>
+        <p class="py-4">(script)</p>
+        <p class="py-4">(texte)</p>
       </div>
 
+      <p class="lg:text-3xl py-4">Pas un langage de programmation en soi</p>
+      <p class="lg:text-3xl py-4">Outils pour obtenir/envoyer des données sur le web<br>via un script JS côté client</p>
+      <p class="lg:text-3xl py-4">Avantages</p>
     </div>
 
     <div class="menu-bottom flex gap-x-14 absolute">
@@ -139,12 +154,16 @@
 
   </section>
 
+  <!-- SLIDE 4 -->
   <section id="4" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
 
     <div>
-      <h1 class="text-5xl lg:text-8xl opacity-20 py-10">Protocoles</h1>
+      <h1 class="text-5xl lg:text-8xl opacity-20 pb-10">Connexion</h1>
       <div class="flex flex-col lg:flex-row items-center justify-between">
         <p class="lg:text-3xl py-4"><a href="https://www.google.com/" target="_blank">HTTP</a></p>
+        
+        <p class="py-4"><a href="https://fr.wikipedia.org/wiki/Ajax_(informatique)" target="_blank">Diagramme</a></p>
+
         <p class="lg:text-3xl py-4"><a href="https://www.google.com/" target="_blank">AJAX</a></p>
       </div>
     </div>
@@ -156,11 +175,12 @@
     </div>
 
   </section>
-  
+
+  <!-- SLIDE 5 -->
   <section id="5" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
 
     <div>
-      <h1 class="text-5xl lg:text-8xl opacity-20 py-10">Méthodes AJAX</h1>
+      <h1 class="text-5xl lg:text-8xl opacity-20 pb-10">Méthodes HTTP</h1>
       <div class="flex flex-col lg:flex-row items-center justify-between">
         <p class="lg:text-3xl py-4"><a href="https://www.google.com/" target="_blank">GET</a></p>
         <p class="lg:text-3xl py-4 opacity-20">POST</p>
@@ -174,15 +194,21 @@
     </div>
 
   </section>
-  
+
+  <!-- SLIDE 6 -->
   <section id="6" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
 
     <div>
       <h1 class="text-5xl lg:text-8xl opacity-20 py-10">Formats</h1>
       <div class="flex flex-col lg:flex-row items-center justify-between">
-        <p class="lg:text-3xl py-4"><a href="https://www.google.com/" target="_blank">JSON</a></p>
-        <p class="lg:text-3xl py-4 opacity-20">XML</p>
+        <p class="lg:text-3xl py-4"><a href="https://www.w3schools.com/xml/simple.xml" target="_blank">XML</a></p>
+        <p class="lg:text-3xl py-4"><a href="https://jsonplaceholder.typicode.com/users/1" target="_blank">JSON</a></p>
       </div>
+      <div class="flex justify-between">
+        <p>Format initial</p>
+        <p>Format actuel</p>
+      </div>
+
     </div>
 
     <div class="menu-bottom flex gap-x-14 absolute">
