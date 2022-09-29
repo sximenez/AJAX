@@ -73,8 +73,9 @@
   <section id="1"
     class="relative h-screen flex flex-col lg:flex-row items-center lg:justify-between mx-4 lg:mx-72 text-center lg:text-left">
 
-    <div>
-      <h1 class="py-20 lg:pt-2 text-7xl lg:text-8xl">AJAX</h1>
+    <div class="py-20 text-center">
+      <h1 class="lg:pb-6 text-7xl lg:text-8xl">AJAX</h1>
+      <p class="italic">A developer's dream</p>
     </div>
 
     <div>
@@ -130,20 +131,24 @@
 
     <div class="text-center lg:text-start">
       <h1 class="text-5xl lg:text-8xl opacity-20 pb-10">AJAX</h1>
-      <p class="lg:text-3xl py-4"><a
-          href="https://www.pierre-giraud.com/javascript-apprendre-coder-cours/introduction-ajax/" target="_blank"><span
-            class="text-red-400">A</span>synchronous <span class="text-red-400">J</span>avaScript <span
-            class="text-red-400">a</span>nd <span class="text-red-400">X</span>ML</a></p>
 
-      <div class="flex justify-between pr-64">
-        <p class="py-4">(no refresh)</p>
-        <p class="py-4">(script)</p>
-        <p class="py-4">(texte)</p>
-      </div>
+      <p class="lg:text-2xl py-4"><a
+          href="https://www.pierre-giraud.com/javascript-apprendre-coder-cours/introduction-ajax/#:~:text=%E2%80%9CL%E2%80%99AJAX%E2%80%9D%20ou%20plut%C3%B4t,de%20la%20page."
+          target="_blank"><span class="text-red-400">A</span>synchronous <span class="text-red-400">J</span>avaScript
+          <span class="text-red-400">a</span>nd <span class="text-red-400">X</span>ML</a></p>
 
-      <p class="lg:text-3xl py-4">Pas un langage de programmation en soi</p>
-      <p class="lg:text-3xl py-4">Outils pour obtenir/envoyer des données sur le web<br>via un script JS côté client</p>
-      <p class="lg:text-3xl py-4">Avantages</p>
+      <p class="lg:text-2xl py-4">Pas un langage de programmation en soi</p>
+      <p class="lg:text-2xl py-4">Outils pour obtenir/envoyer des données depuis une page web
+        <br>sans avoir à recharger la page après une manip
+      </p>
+      <p class="lg:text-2xl py-4">Grosso modo, tu charges une page une première fois
+        <br> et le reste s'affiche de manière fluide</p>
+      <p class="lg:text-2xl py-4">L'intérêt principal : rendre les pages web dynamiques et interactives,
+        <br>et améliorer l'expérience utilisateur
+      </p>
+      <p class="lg:text-2xl py-4">Important car utilisé par énormément d'apps web<br>(Google, FB, Twitter, etc.)</p>
+      <p class="lg:text-2xl py-4">Fonctionne sur tous les navigateurs courants</p>
+
     </div>
 
     <div class="menu-bottom flex gap-x-14 absolute">
@@ -157,15 +162,53 @@
   <!-- SLIDE 4 -->
   <section id="4" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
 
-    <div>
-      <h1 class="text-5xl lg:text-8xl opacity-20 pb-10">Connexion</h1>
-      <div class="flex flex-col lg:flex-row items-center justify-between">
-        <p class="lg:text-3xl py-4"><a href="https://www.google.com/" target="_blank">HTTP</a></p>
-        
-        <p class="py-4"><a href="https://fr.wikipedia.org/wiki/Ajax_(informatique)" target="_blank">Diagramme</a></p>
+    <h1 class="text-5xl lg:text-8xl opacity-20 pb-10">Connexion</h1>
+    <div class="w-full">
 
-        <p class="lg:text-3xl py-4"><a href="https://www.google.com/" target="_blank">AJAX</a></p>
+      <div class="flex items-center justify-evenly">
+        <div>
+          <p class="lg:text-4xl py-4"><a href="https://www.google.com/" target="_blank">HTTP</a></p>
+          <p><a href="https://fr.wikipedia.org/wiki/Ajax_(informatique)#/media/Fichier:Ajax-modell-fr.svg"
+              target="_blank">Classique</a></p>
+          <!--<br>
+          <p class="text-sm">1. L'utilisateur sollicite une page via le navigateur
+            <br>2. Le navigateur envoie une requête au serveur
+            <br>3. Le serveur traite
+            <br>4. Le serveur envoie la réponse sous forme de page web
+            <br>5. Le navigateur affiche la page
+          </p>-->
+
+          <br>
+          <p>Chaque manip de l'utilisateur entraîne<br>l'affichage d'une nouvelle page</p>
+          <br>
+          <p>L'utilisateur doit attendre la réponse</p>
+          <br>
+          <p>Ne nécessite pas de programmation</p>
+
+        </div>
+
+        <div>
+          <p class="lg:text-4xl py-4"><a href="https://www.google.com/" target="_blank">AJAX</a></p>
+          <p><a href="https://fr.wikipedia.org/wiki/Ajax_(informatique)#/media/Fichier:Ajax-modell-fr.svg"
+              target="_blank">Dynamique</a></p>
+          <!--<br>
+          <p class="text-sm">1. L'utilisateur sollicite une page via le navigateur
+            <br>2. La page incorpore un programme JS
+            <br>3. Le navigateur execute le 
+            <br>4. Le serveur envoie la réponse sous forme de page web
+            <br>5. Le navigateur affiche la page
+          </p>-->
+
+          <br>
+          <p>Pas besoin de recharger la page<br>pour afficher un résultat de requête</p>
+          <br>
+          <p>L'utilisateur a une expérience plus fluide</p>
+          <br>
+          <p>Besoin de programmer en JS les échanges</p>
+
+        </div>
       </div>
+
     </div>
 
     <div class="menu-bottom flex gap-x-14 absolute">
@@ -179,11 +222,19 @@
   <!-- SLIDE 5 -->
   <section id="5" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
 
-    <div>
-      <h1 class="text-5xl lg:text-8xl opacity-20 pb-10">Méthodes HTTP</h1>
-      <div class="flex flex-col lg:flex-row items-center justify-between">
-        <p class="lg:text-3xl py-4"><a href="https://www.google.com/" target="_blank">GET</a></p>
-        <p class="lg:text-3xl py-4 opacity-20">POST</p>
+    <h1 class="text-5xl lg:text-8xl opacity-20 pb-10">Méthodes HTTP</h1>
+
+    <div class="w-full">
+      <div class="flex items-center justify-evenly">
+        <div class="text-center">
+          <p class="lg:text-4xl py-4"><a href="https://www.google.com/" target="_blank">GET</a></p>
+          <p><a href="#" target="_blank">Obtenir</a></p>
+        </div>
+
+        <div class="text-center opacity-20">
+          <p class="lg:text-4xl py-4">POST</p>
+          <p><a href="#" target="_blank">Envoyer</a></p>
+        </div>
       </div>
     </div>
 
@@ -198,17 +249,20 @@
   <!-- SLIDE 6 -->
   <section id="6" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
 
-    <div>
-      <h1 class="text-5xl lg:text-8xl opacity-20 py-10">Formats</h1>
-      <div class="flex flex-col lg:flex-row items-center justify-between">
-        <p class="lg:text-3xl py-4"><a href="https://www.w3schools.com/xml/simple.xml" target="_blank">XML</a></p>
-        <p class="lg:text-3xl py-4"><a href="https://jsonplaceholder.typicode.com/users/1" target="_blank">JSON</a></p>
-      </div>
-      <div class="flex justify-between">
-        <p>Format initial</p>
-        <p>Format actuel</p>
-      </div>
+    <h1 class="text-5xl lg:text-8xl opacity-20 py-10">Formats</h1>
+    <div class="w-full">
+      <div class="flex items-center justify-evenly">
+        <div class="text-center">
+          <p class="lg:text-4xl py-4"><a href="https://www.w3schools.com/xml/simple.xml" target="_blank">XML</a></p>
+          <p><a href="#" target="_blank">Format initial</a></p>
+        </div>
 
+        <div class="text-center">
+          <p class="lg:text-4xl py-4"><a href="https://jsonplaceholder.typicode.com/users/1" target="_blank">JSON</a>
+          </p>
+          <p><a href="#" target="_blank">Format plus actuel</a></p>
+        </div>
+      </div>
     </div>
 
     <div class="menu-bottom flex gap-x-14 absolute">
