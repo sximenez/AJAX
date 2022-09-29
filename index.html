@@ -84,7 +84,7 @@
         <li class="py-4"><a href="#4">Connexion HTTP vs AJAX</a></li>
         <li class="py-4"><a href="#5">Méthodes GET vs POST</a></li>
         <li class="py-4"><a href="#6">Formats XML vs JSON</a></li>
-        <li class="py-4"><a href="#">XMLHttpRequest vs fetch</a></li>
+        <li class="py-4"><a href="#7">XMLHttpRequest vs fetch</a></li>
         <li class="py-4"><a href="#">API</a></li>
 
       </ul>
@@ -129,6 +129,60 @@
   <!-- SLIDE 3 -->
   <section id="3" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
 
+    <h1 class="text-5xl lg:text-8xl opacity-20 pb-20">AJAX</h1>
+
+    <div class="w-full">
+      <div class="flex items-center justify-evenly p-12 bg-sky-800 rounded-lg">
+        <div class="text-center">
+          <p class="lg:text-5xl pb-10">AU DEBUT</p>
+          <p class="lg:text-xl">HTML</p>
+          <p class="lg:text-xl">Chargement initial de la page</p>
+          <p class="lg:text-xl">Nouvelle page à chaque interaction</p>
+          <p class="lg:text-xl">UX statique</p>
+          <p class="lg:text-xl">Inefficace</p>
+        </div>
+
+        <span style="color:white;"><i class="fa-solid fa-arrow-right fa-xl"></i></span>
+
+        <p class="lg:text-xl">Problème</p>
+
+        <span style="color:white;"><i class="fa-solid fa-arrow-right fa-xl"></i></span>
+
+        <p class="text-center lg:text-xl">Solution<br>Se servir
+          de JS<br>AJAX</p>
+
+        <span style="color:white;"><i class="fa-solid fa-arrow-right fa-xl"></i></span>
+
+        <div class="text-center">
+           <p class="lg:text-5xl pb-10">DESORMAIS</p>
+          <p class="lg:text-xl">Pages dynamiques</p>
+          <p class="lg:text-xl">Pas besoin de recharger</p>
+          <p class="lg:text-xl">UX fluide</p>
+          <p class="lg:text-xl">Multimédia, réseaux sociaux</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center pt-14">
+      <p class="lg:text-4xl py-4"><a
+          href="https://www.pierre-giraud.com/javascript-apprendre-coder-cours/introduction-ajax/#:~:text=%E2%80%9CL%E2%80%99AJAX%E2%80%9D%20ou%20plut%C3%B4t,de%20la%20page."
+          target="_blank"><span class="text-red-400">A</span>synchronous <span class="text-red-400">J</span>avaScript
+          <span class="text-red-400">a</span>nd <span class="text-red-400">X</span>ML</a></p>
+      <p class="lg:text-xl">Sujet réseau (lien client/serveur)</p>
+      <p class="lg:text-xl">Optimisation JS pour récupérer/envoyer des données sur serveur</p>
+    </div>
+
+    <div class="menu-bottom flex gap-x-14 absolute">
+      <a href="#2"><i class="fa-solid fa-arrow-up fa-2xl opacity-20"></i></a>
+      <a href="#1"><i class="fa-sharp fa-solid fa-house fa-xl opacity-20"></i></a>
+      <a href="#4"><i class="fa-solid fa-arrow-down fa-2xl opacity-20"></i></a>
+    </div>
+
+  </section>
+
+  <!-- SLIDE 3
+  <section id="3" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
+
     <div class="text-center lg:text-start">
       <h1 class="text-5xl lg:text-8xl opacity-20 pb-10">AJAX</h1>
 
@@ -142,7 +196,8 @@
         <br>sans avoir à recharger la page après une manip
       </p>
       <p class="lg:text-2xl py-4">Grosso modo, tu charges une page une première fois
-        <br> et le reste s'affiche de manière fluide</p>
+        <br> et le reste s'affiche de manière fluide
+      </p>
       <p class="lg:text-2xl py-4">L'intérêt principal : rendre les pages web dynamiques et interactives,
         <br>et améliorer l'expérience utilisateur
       </p>
@@ -157,7 +212,7 @@
       <a href="#4"><i class="fa-solid fa-arrow-down fa-2xl opacity-20"></i></a>
     </div>
 
-  </section>
+  </section>-->
 
   <!-- SLIDE 4 -->
   <section id="4" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
@@ -169,15 +224,7 @@
         <div>
           <p class="lg:text-4xl py-4"><a href="https://www.google.com/" target="_blank">HTTP</a></p>
           <p><a href="https://fr.wikipedia.org/wiki/Ajax_(informatique)#/media/Fichier:Ajax-modell-fr.svg"
-              target="_blank">Classique</a></p>
-          <!--<br>
-          <p class="text-sm">1. L'utilisateur sollicite une page via le navigateur
-            <br>2. Le navigateur envoie une requête au serveur
-            <br>3. Le serveur traite
-            <br>4. Le serveur envoie la réponse sous forme de page web
-            <br>5. Le navigateur affiche la page
-          </p>-->
-
+              target="_blank">Classique<br>Synchrone</a></p>
           <br>
           <p>Chaque manip de l'utilisateur entraîne<br>l'affichage d'une nouvelle page</p>
           <br>
@@ -190,17 +237,9 @@
         <div>
           <p class="lg:text-4xl py-4"><a href="https://www.google.com/" target="_blank">AJAX</a></p>
           <p><a href="https://fr.wikipedia.org/wiki/Ajax_(informatique)#/media/Fichier:Ajax-modell-fr.svg"
-              target="_blank">Dynamique</a></p>
-          <!--<br>
-          <p class="text-sm">1. L'utilisateur sollicite une page via le navigateur
-            <br>2. La page incorpore un programme JS
-            <br>3. Le navigateur execute le 
-            <br>4. Le serveur envoie la réponse sous forme de page web
-            <br>5. Le navigateur affiche la page
-          </p>-->
-
+              target="_blank">Dynamique<br>Asynchrone</a></p>
           <br>
-          <p>Pas besoin de recharger la page<br>pour afficher un résultat de requête</p>
+          <p>Pas besoin de recharger la page<br>car JS injecte les éléments et les données</p>
           <br>
           <p>L'utilisateur a une expérience plus fluide</p>
           <br>
@@ -208,6 +247,11 @@
 
         </div>
       </div>
+
+      <p class="lg:text-4xl pt-20 text-center"><a
+        href="https://www.pierre-giraud.com/javascript-apprendre-coder-cours/introduction-ajax/#:~:text=%E2%80%9CL%E2%80%99AJAX%E2%80%9D%20ou%20plut%C3%B4t,de%20la%20page."
+        target="_blank"><span class="text-red-400">A</span>synchronous <span class="opacity-20"><span class="text-red-400">J</span>avaScript
+        <span class="text-red-400">a</span>nd <span class="text-red-400">X</span>ML</span></a></p>
 
     </div>
 
@@ -249,7 +293,7 @@
   <!-- SLIDE 6 -->
   <section id="6" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
 
-    <h1 class="text-5xl lg:text-8xl opacity-20 py-10">Formats</h1>
+    <h1 class="text-5xl lg:text-8xl opacity-20 pb-10">Formats</h1>
     <div class="w-full">
       <div class="flex items-center justify-evenly">
         <div class="text-center">
@@ -263,12 +307,92 @@
           <p><a href="#" target="_blank">Format plus actuel</a></p>
         </div>
       </div>
+
+      <p class="lg:text-4xl pt-20 text-center"><a
+        href="https://www.pierre-giraud.com/javascript-apprendre-coder-cours/introduction-ajax/#:~:text=%E2%80%9CL%E2%80%99AJAX%E2%80%9D%20ou%20plut%C3%B4t,de%20la%20page."
+        target="_blank"><span class="opacity-20"><span class="text-red-400">A</span>synchronous <span class="text-red-400">J</span>avaScript
+        <span class="text-red-400">a</span>nd</span> <span class="text-red-400">X</span>ML</a></p>
+
     </div>
 
     <div class="menu-bottom flex gap-x-14 absolute">
       <a href="#5"><i class="fa-solid fa-arrow-up fa-2xl opacity-20"></i></a>
       <a href="#1"><i class="fa-sharp fa-solid fa-house fa-xl opacity-20"></i></a>
-      <a href="#"><i class="fa-solid fa-arrow-down fa-2xl opacity-20"></i></a>
+      <a href="#7"><i class="fa-solid fa-arrow-down fa-2xl opacity-20"></i></a>
+    </div>
+
+  </section>
+
+  <!-- SLIDE 7 -->
+  <section id="7" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
+
+    <h1 class="text-5xl lg:text-8xl opacity-20 pb-10">Echange de données</h1>
+    <div class="w-full">
+      <div class="flex items-center justify-evenly">
+        <div class="text-center">
+          <p class="lg:text-4xl py-4"><a href="https://www.w3schools.com/xml/simple.xml" target="_blank">XMLHttpRequest</a></p>
+          <p><a href="#" target="_blank">Moyen classique</a></p>
+        </div>
+
+        <div class="text-center">
+          <p class="lg:text-4xl py-4"><a href="https://jsonplaceholder.typicode.com/users/1" target="_blank">fetch()</a>
+          </p>
+          <p><a href="#" target="_blank">Moyen plus actuel</a></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-bottom flex gap-x-14 absolute">
+      <a href="#6"><i class="fa-solid fa-arrow-up fa-2xl opacity-20"></i></a>
+      <a href="#1"><i class="fa-sharp fa-solid fa-house fa-xl opacity-20"></i></a>
+      <a href="#8"><i class="fa-solid fa-arrow-down fa-2xl opacity-20"></i></a>
+    </div>
+
+  </section>
+  
+  <!-- SLIDE 8 -->
+  <section id="8" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
+
+    <h1 class="text-5xl lg:text-8xl opacity-20 pb-10">API</h1>
+    <div class="w-full">
+      <div class="flex items-center justify-evenly">
+        <div class="text-center">
+          <p class="lg:text-4xl py-4"><a href="https://www.w3schools.com/xml/simple.xml" target="_blank">XMLHttpRequest</a></p>
+          <p><a href="#" target="_blank">Moyen classique</a></p>
+        </div>
+
+        <div class="text-center">
+          <p class="lg:text-4xl py-4"><a href="https://jsonplaceholder.typicode.com/users/1" target="_blank">fetch()</a>
+          </p>
+          <p><a href="#" target="_blank">Moyen plus actuel</a></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-bottom flex gap-x-14 absolute">
+      <a href="#7"><i class="fa-solid fa-arrow-up fa-2xl opacity-20"></i></a>
+      <a href="#1"><i class="fa-sharp fa-solid fa-house fa-xl opacity-20"></i></a>
+      <a href="#9"><i class="fa-solid fa-arrow-down fa-2xl opacity-20"></i></a>
+    </div>
+
+  </section>
+  
+  <!-- SLIDE 9 -->
+  <section id="9" class="h-screen flex flex-col items-center justify-center mx-4 lg:mx-72 relative">
+
+    <h1 class="text-5xl lg:text-8xl opacity-20 pb-10">Récap</h1>
+    <div class="w-full flex justify-center rounded-lg">
+      
+      <img src="https://kroki.io/plantuml/svg/eNp9Uc1uwjAMvvMUlnbsYS-AEB37YWjQavSANHHwEtNGtEnnuEI8EjvvDfpiC2Gb6GWnyP5-8tmeekGWxljdYDvye2NbZGxA1ej9zllRrnYMh8oIXcHvqPYlu87qWcSF0foAkZUr1sppunOsif9jpczuMLv6ZpS83ZSMxy2ki3QzHscsk8koCf0j1bU7bOGVPrr-UwjmRZEHJIGnhwJuIc_WxblMIM2fB4qsE1P7SN0sX-Yi7dmDvMTWjkRVA_6j4wbFgybQztr-RH_i-C7W2WogSP3RqoqdpR8cVP8l_Sns0pwnjqkKxjBiE-pg7AfOCSydNjujUIyzoDu4z5YXIMeYg0lVyOWvHGqEFsuwsCmF-11u-A0h5J7u" alt="">
+
+    </div>
+
+    <div class="menu-bottom flex gap-x-14 absolute">
+      <a href="#8"><i class="fa-solid fa-arrow-up fa-2xl opacity-20"></i></a>
+      <a href="#1"><i class="fa-sharp fa-solid fa-house fa-xl opacity-20"></i></a>
+      <a href="#10"><i class="fa-solid fa-arrow-down fa-2xl opacity-20"></i></a>
     </div>
 
   </section>

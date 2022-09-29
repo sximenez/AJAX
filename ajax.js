@@ -1,1 +1,0 @@
-const xhttp = XMLHttpRequest();
