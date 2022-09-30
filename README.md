@@ -1,3 +1,3 @@
-✅ https://github.com/sximenez/AJAX
+✅ https://sximenez.github.io/AJAX/
 
 AJAX | Récupération de données
