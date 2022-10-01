@@ -1,6 +1,6 @@
 # AJAX | Récupération de données (GET)
 
-✅ https://github.com/sximenez/AJAX
+✅ https://sximenez.github.io/AJAX/
 
 ## Comment fonctionne un navigateur ?
 
