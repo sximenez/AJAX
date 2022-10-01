@@ -1,8 +1,3 @@
-<<<<<<< Updated upstream
-✅ https://sximenez.github.io/AJAX/
-
-AJAX | Récupération de données
-=======
 # AJAX | Récupération de données (GET)
 
 ✅ https://github.com/sximenez/AJAX
