@@ -36,7 +36,7 @@ Si c'est la première fois qu'on demande au navigateur d'aller sur ce site, c'es
 
 Si c'est la enième fois, notre navigateur garde en mémoire l'adresse pour s'y référer ultérieurement (notion de ```cache```).
 
-Et si on cherche sur Google ? Google nous propose une liste de réponses avec leurs adresses IP.
+Et si on cherche sur Google ? Google nous propose une liste d'url en réponse à notre recherche, et notre navigateur entame la recherche DNS si le site lui est inconnu.
 
 Ok, et maintenant ?
 
@@ -114,17 +114,17 @@ Il y a cinq étapes dans ce processus de parsing :
 
 #### 1. Construire l'arbre du DOM
 
-Avec son 'parser', le navigateur lit la structure des balises HTML (__tokenization__) et construit un 'arbre'. Logiquement, si la structure HTML en entrée est claire, le parsing se fait rapidement.
+Avec son 'parseur', le navigateur lit la structure des balises HTML (__tokenization__) et construit un 'arbre'. Logiquement, si la structure HTML en entrée est claire, le parsing se fait rapidement.
 
 L'arbre commence par l'élément ```<html>```, puis ```<head>``` et ```<body>```. Viennent ensuite le reste des éléments.
 
-Certaines ressources comme les images ne ralentissent pas le parser, il les demande et continue.
+Certaines ressources comme les images ne ralentissent pas le parseur, il les demande et continue.
 
 Cependant, des tags ```<script>``` peuvent ralentir son travail, notamment s'ils sont lourds.
 
 Construire l'arbre du DOM est la tâche principale du navigateur à ce stade. En parallèle, un autre programme, le ```preload scanner```, s'occupe de demander des ressources importantes comme le CSS, le Javascript ou les polices. 
 
-Comme cela, quand le parser rencontre la balise, il a déjà ce dont il a besoin pour compléter l'arbre.
+Comme cela, quand le parseur rencontre la balise, il a déjà ce dont il a besoin pour compléter l'arbre.
 
 > Pour éviter qu'un script Javascript ralentisse le processus, rajoute l'attribut ```async``` ou ```defer``` si l'ordre de parsing est important
 
@@ -178,7 +178,178 @@ Si le navigateur rencontre beaucoup de blocages, l'utilisateur ne pourra pas scr
 
 Et voici en résumé comment fonctionne de nos jours un navigateur web !
 
+<img src="images/browser_steps.png" alt="Prise d'écran Google Chrome des étapes par lesquelles passe le navigateur pour afficher une page">
+
 <img src="https://kroki.io/plantuml/svg/eNp9kl1LwzAUhu_7Kw54OQQFvRvDtD3bYruk5pw6hnhRtGqxH6MtyMAfb5b4tQnehJy3z_vm9CRXw1j0Y1O1j02xDYbXqt0WfdHAQ10Mw1PXjg9d3fXw9lKNZRBM7k6e-2J3DwJCo9eEBjIjFU-njp_NgolFdmVdd2_3ECuCVOskz6w8caV13KJxpcxAxLFBouDAxVEGS6FiWooEHUkbBe_79VREid8dWVIChQvNUrDUypkiNCznMhLsQ6JUomJIcHPoXTJnYPAmR2IHLpA9UTXbumzKdizGqmvtKXKFwBrm0hBDuLHBfxqnVK-BWBifdX6RhGDy9IjMhCGpFg5hgwhhLtP4U7GD0isn-yoiOqivCURIbETETiUvi1-Q_R8Vo_kOjPQqlArjHyAVG52z_2pwbrt2cibsZXrVEvZ2rTPTJHkf9e9QrA_3LX2N__KsGYIguCrtw_KP6wOYdqg6" alt="Diagramme de comment fonctionne un navigateur">
+
+## C'est quoi AJAX alors ?
+
+Revenons à l'étape où le navigateur fait une requête HTTP GET pour obtenir les ressources qu'il va parser, puis peindre à l'écran.
+
+Une fois que la page est peinte, on peut imaginer qu'elle est comme figée.
+
+Si on veut l'actualiser, le navigateur doit la 'repeindre' : il doit refaire une requête HTTP GET, repasser par toutes les étapes de parsing, puis recharger la page.
+
+Dans ce contexte, ```AJAX``` est tout simplement une optimisation permettant de peindre uniquement le bout de page qui va afficher les nouvelles informations.
+
+On évite donc de tout reparser.
+
+Grosso modo, AJAX est une pratique, un procédé qui utilise du code Javascript pour réaliser les requêtes HTTP à la place du navigateur.
+
+Il permet de __collecter des données du serveur et d'actualiser des parties du DOM directement__, dispensant le navigateur d'avoir à recharger la page.
+
+Cela donne un affichage plus rapide et fluide pour l'utilisateur.
+
+En outre, à l'instar du 'preload scanner' qu'utilise le navigateur pendant qu'il crée ses arbres, AJAX échange des données avec le serveur en arrière-plan.
+
+C'est ce qu'on appelle ```asynchrone``` : les bouts de code s'exécutent en parallèle, ce qui augmente la performance web.
+
+On s'en sert aujourd'hui pour accéder à des API.
+
+> AJAX, ce sont les sigles de Asynchronous Javascript and XML
+
+> *Give your users access to our entire photo and video library without leaving your app or website* (Pexels), un bon exemple d'utilisation AJAX 
+
+### Formats XML et JSON
+
+AJAX échange des données avec le serveur sous format texte.
+
+```XML``` est un format texte proche du HTML pour lequel AJAX a été conçu.
+<a href="https://www.w3schools.com/xml/simple.xml">Voir exemple de XML</a>
+
+Il laisse sa place à ```JSON```, un format plus d'actualité.
+<a href="https://jsonplaceholder.typicode.com/users/1">Voir exemple de JSON</a>
+
+> JSON (JavaScript Object Notation) is a lightweight data-interchange format. 
+> It is easy for humans to read and write. It is easy for machines to parse and generate.
+
+JSON est d'ailleurs la *syntaxe utilisée pour définir des objets en Javascript*.
+
+### XMLHttpRequest
+
+On peut récupérer des données depuis une URL avec la classe XMLHttpRequest.
+Voici la syntaxe :
+
+```Javascript
+// 1. Initialisation de l'objet XMLHttpRequest, qu'on stocke dans la variable constante xhr 
+const xhr = new XMLHttpRequest();
+
+// 2. Spécification de la méthode HTTP à utiliser et l'URL via la méthode open
+xhr.open("GET", "https://jsonplaceholder.typicode.com/users/1");
+
+// 3. Fonction permettant de traiter la réponse reçue /!\ sérialisée en non objet
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === 4) {
+    console.log(xhr.responseText);
+  }
+};
+
+// 4. Envoi de la requête
+
+xhr.send();
+```
+
+Cette réponse est "sérialisée", ça veut dire de type "string", non traitable en tant qu'objet dans Javascript.
+
+Tout traitement donne donc "undefined".
+
+Voici comment convertir une réponse sérialisée en objet :
+
+```Javascript
+let str = '{"message":"hello"}';
+console.log(str.message); // undefined
+
+let object = JSON.parse(str);
+console.log(object.message); // hello
+```
+
+On peut donc actualiser notre requête précédente :
+
+```Javascript
+// 1. Initialisation de l'objet XMLHttpRequest, qu'on stocke dans la variable constante xhr 
+const xhr = new XMLHttpRequest();
+
+// 2. Spécification de la méthode HTTP à utiliser et l'URL via la méthode open
+xhr.open("GET", "https://jsonplaceholder.typicode.com/users/1");
+
+// 3. Fonction permettant de traiter la réponse reçue /!\ sérialisée en non objet
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === 4) {
+    let response = JSON.parse(xhr.responseText);
+    console.log(typeof xhr.responseText, response);
+  }
+};
+
+// 4. Envoi de la requête
+
+xhr.send();
+```
+---
+Exercices
+---
+
+1. Récupérer une adresse IP via une API et l'afficher dans le DOM
+
+```Javascript
+const xhr = new XMLHttpRequest();
+// On crée un élément div dans le DOM qu'on utilise pour injecter les données
+let displayElement = document.getElementById("result");
+
+xhr.open("GET", "https://api.ipify.org?format=json");
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === XMLHttpRequest.DONE) {
+    let response = JSON.parse(xhr.responseText);
+    console.log(response.ip);
+    
+    // On crée une variable qui crée un élément p et qui stocke la réponse
+    const pElement = document.createElement("p");
+    pElement.innerText = response.ip;
+    
+    // On insère l'élément p dans le DOM
+    displayElement.appendChild(pElement);
+  }
+};
+xhr.send();
+```
+
+```HTML
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      height: 100vh; 
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+      justify-content: center;
+      font-size: 5em;
+    }
+    
+    </style>
+
+</head>
+
+<body>
+
+  <p>What is my public IP address?</p>
+  <div id="result"></div>
+
+  <script src="exo2.js"></script>
+
+</body>
+
+</html>
+```
 
 ## Sources
 **Comment fonctionne un navigateur**
@@ -187,39 +358,11 @@ https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work
 **Requêtes HTTP**
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
 
-<!--## C'est quoi AJAX ?
+**AJAX Definition**
+https://developer.mozilla.org/en-US/docs/Glossary/AJAX
 
-Lorsqu'on sollicite une page web sur un navigateur, on n'a pas en local (sur notre pc) les fichiers qu'il faut pour afficher la page (le HTML, le CSS, le JS, les images/vidéos, etc.).
+**XML**
+https://www.w3.org/XML/
 
-Le navigateur se met en communication avec un serveur situé ailleurs : c'est lui qui a les fichiers.
-
-Via un ```protocole```, des règles pour communiquer, le navigateur demande au serveur l'accès aux fichiers, puis les interprète et nous affiche en retour la page sur notre écran.
-
-Alors, au début du web, lorsqu'on sollicitait une page, le navigateur communiquait avec le serveur et nous affichait la page, très bien.
-
-Cependant, à la moindre action de notre part (demande/envoi des données), le serveur envoyait une nouvelle page. Le navigateur rechargait du coup cette nouvelle page, 
-
-
-c'est au niveau des interactions que ça coinçait. Pour afficher un contenu nouveau sur la page après un clic, le navigateur était limité : il ne pouvait que recharger une nouvelle page avec les nouveaux éléments inclus.
-
-Cela rendait le web statique et l'expérience utilisateur pas top, notamment si la connexion n'était pas bonne (latence). On était donc face à un problème.
-
-Les développeurs se sont donc servis de Javascript pour trouver une solution à ce problème, c'est donc là qu'emerge ```AJAX```.
-
-Avec un script AJAX, le navigateur est en mesure de garder l'affichage de la page pendant que le serveur est sollicité.
-
-Il permet de demander/envoyer des données, les modifier si besoin, puis les injecter directement sur la page en poussant les blocs déjà existants. Pas de rechargement de page donc.
-
-Puisque le processus se passe en arrière-plan et que la page n'est pas rechargée, l'expérience utilisateur est plus fluide et conforme à ce qu'on connaît aujourd'hui.
-
-AJAX est important à connaître car il a permis une optimisation considérable et que beaucoup d'applications web modernes s'en servent (Google, FB, Twitter, etc.). 
-
-> On peut donc résumer :
-> AJAX est principalement un outil d'optimisation d'affichage web
-> Il permet en gros de solliciter un serveur en arrière-plan afin modifier une page de manière dynamique (sans rechargement)
-> Ce sont les sigles de : Asynchronous Javascript and XML
-
-## HTTP vs AJAX
-
-Le ```protocole HTTP``` est un ensemble de règles pour que les ordis puissent communiquer entre eux sur internet.
->>>>>>> Stashed changes-->
+**JSON**
+https://www.json.org/json-en.html
