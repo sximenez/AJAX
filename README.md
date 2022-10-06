@@ -178,7 +178,7 @@ Si le navigateur rencontre beaucoup de blocages, l'utilisateur ne pourra pas scr
 
 Et voici en résumé comment fonctionne de nos jours un navigateur web !
 
-<img src="images/browser_steps.png" alt="Prise d'écran Google Chrome des étapes par lesquelles passe le navigateur pour afficher une page">
+<img src="images/browser_steps1.png" alt="Prise d'écran Google Chrome des étapes par lesquelles passe le navigateur pour afficher une page">
 
 <img src="https://kroki.io/plantuml/svg/eNp9kl1LwzAUhu_7Kw54OQQFvRvDtD3bYruk5pw6hnhRtGqxH6MtyMAfb5b4tQnehJy3z_vm9CRXw1j0Y1O1j02xDYbXqt0WfdHAQ10Mw1PXjg9d3fXw9lKNZRBM7k6e-2J3DwJCo9eEBjIjFU-njp_NgolFdmVdd2_3ECuCVOskz6w8caV13KJxpcxAxLFBouDAxVEGS6FiWooEHUkbBe_79VREid8dWVIChQvNUrDUypkiNCznMhLsQ6JUomJIcHPoXTJnYPAmR2IHLpA9UTXbumzKdizGqmvtKXKFwBrm0hBDuLHBfxqnVK-BWBifdX6RhGDy9IjMhCGpFg5hgwhhLtP4U7GD0isn-yoiOqivCURIbETETiUvi1-Q_R8Vo_kOjPQqlArjHyAVG52z_2pwbrt2cibsZXrVEvZ2rTPTJHkf9e9QrA_3LX2N__KsGYIguCrtw_KP6wOYdqg6" alt="Diagramme de comment fonctionne un navigateur">
 
